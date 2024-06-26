@@ -1,0 +1,28 @@
+FOr setting up the authorization we will use  :  Simple JWT
+https://django-rest-framework-simplejwt.readthedocs.io/en/latest/creating_tokens_manually.html
+
+1. pip install djangorestframework-simplejwt
+2. in your root urls.py file (or any other url config), include routes for Simple JWT’s TokenObtainPairView and TokenRefreshView views:
+
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+
+urlpatterns = [
+    ...
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    ...
+]
+
+3. In Views
+from rest_framework_simplejwt.tokens import RefreshToken
+
+def post(user):
+    refresh = RefreshToken.for_user(user)
+
+    return {
+        'refresh': str(refresh),
+        'access': str(refresh.access_token),
+    }

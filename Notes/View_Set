@@ -1,0 +1,41 @@
+Django REST Framework Views Series:
+
+APIViews
+Generic Views
+ViewSets
+==========================================
+3. ViewSets  : https://testdriven.io/blog/drf-views-part-3/
+
+ViewSet is a type of class-based view.
+Instead of method handlers, like .get() and .post(), it provides actions, like .list() and .create().
+The most significant advantage of ViewSets is that the URL construction is handled automatically (with a router class).
+This helps with the consistency of the URL conventions across your API and minimizes the amount of code you need to write.
+There are four types of ViewSets, from the most basic to the most powerful:
+
+ViewSet
+GenericViewSet
+ReadOnlyModelViewSet
+ModelViewSet
+
+Actions :
+The following actions are handled by the router class by default:
+
+list
+create
+retrieve (pk needed)
+update (pk needed)
+partial_update (pk needed)
+destroy (pk needed)
+
+Handling URLs :
+Although you could map the URLs of your ViewSets the same way as you would with other views, this is not the point of ViewSets.
+Instead of using Django's urlpatterns, ViewSets come with a router class that automatically generates the URL configurations.
+DRF comes with two routers out-of-the-box:
+
+SimpleRouter
+DefaultRouter
+
+
+
+
+
