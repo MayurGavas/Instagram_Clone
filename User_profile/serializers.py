@@ -3,8 +3,12 @@ from .models import UserProfile
 from django.contrib.auth.models import User
 
 
-
 class UserProfileSerializer(ModelSerializer):
+
+
+    class Meta:
+        model = UserProfile
+        fields = ['bio','profile_pic']
 
     def create(self, validated_data):
         user = self.context['user']
@@ -14,6 +18,3 @@ class UserProfileSerializer(ModelSerializer):
         user_profile = UserProfile.objects.create(user=user,bio=bio,profile_pic=profile_pic)
         return user_profile
 
-    class Meta:
-        model = UserProfile
-        fields = ['bio','profile_pic']
