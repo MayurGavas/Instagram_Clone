@@ -3,11 +3,11 @@ from rest_framework.routers import DefaultRouter
 from . import views
 
 router = DefaultRouter()
-router.register('profile', views.UserProfileView)
+router.register('profile', views.UserProfileView,basename='create')
+#router.register('del', views.UserProfileDeletes,basename="delete")
 
 urlpatterns = [
     path('', include(router.urls)),
-
 ]
 
 """

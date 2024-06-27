@@ -42,8 +42,6 @@ def post(request):
 
     return Response(response_data, status=response_status)
 
-
-
 class AllUsersView(viewsets.GenericViewSet, mixins.ListModelMixin):
 
     queryset = User.objects.all()

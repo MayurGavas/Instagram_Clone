@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 
-class UserProfileCreateViewSerializer(ModelSerializer):
+class UserProfileSerializer(ModelSerializer):
 
     def create(self, validated_data):
         user = self.context['user']
@@ -13,7 +13,6 @@ class UserProfileCreateViewSerializer(ModelSerializer):
 
         user_profile = UserProfile.objects.create(user=user,bio=bio,profile_pic=profile_pic)
         return user_profile
-
 
     class Meta:
         model = UserProfile
