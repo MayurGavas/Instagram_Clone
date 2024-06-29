@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/',include('SignUp_Login.urls'), name='signup_login'),
     path('user-profile/', include('User_profile.urls'), name='Profile_details'),
-    path('more-info/',include('Followers_Following.urls'),name='Followers_Following')
+    path('more-info/',include('Followers_Following.urls'),name='Followers_Following'),
+    path('post-info/',include('PostLikeComment.urls'),name='Post_Like_Comment')
 
 ]
